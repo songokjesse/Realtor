@@ -10,9 +10,65 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model users{
+model User{
   id Int @id @default(autoincrement())
   name String
-  email String
+  email String  @unique
   password String
+  properties Property[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@map(name: "users")
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+  name String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model Location {
+  id Int @id @default(autoincrement())
+  name String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Property {
+  id Int @id @default(autoincrement())
+  name String
+  categoryId  Int
+  locationId Int
+  owner    User   @relation(fields: [ownerId], references: [id])
+  ownerId  Int
+  price Decimal
+  geolocation String
+  verified Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model Images{
+  id Int @id @default(autoincrement())
+  image_url String
+  propertyiD Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Ownership {
+  id Int @id @default(autoincrement())
+  name String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model PropertyOwnership {
+  id Int @id @default(autoincrement())
+  userId Int
+  ownershipId Int
+  propertyId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
