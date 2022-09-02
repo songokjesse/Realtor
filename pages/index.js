@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Layout from '../components/layout'
 
 export default function Home() {
   return (
@@ -65,5 +66,13 @@ export default function Home() {
         </a>
       </footer>
     </div>
+  )
+}
+
+Home.getLayout = function getLayout(page) {
+  return (
+      <Layout>
+        {page}
+      </Layout>
   )
 }
