@@ -1,7 +1,8 @@
 import Layout from "../../../components/layout";
+import Link from "next/link";
 
 
-export default function Add({categories}) {
+export default function Add() {
     const handleSubmit = async (event) => {
 
         // Stop the form from submitting and refreshing the page.
@@ -43,7 +44,8 @@ export default function Add({categories}) {
             <div className="text-sm breadcrumbs">
                 <ul>
                     <li>
-                        <a href="/admin">
+                        <Link href="/admin">
+                        <a >
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                  className="w-4 h-4 mr-2 stroke-current">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
@@ -51,9 +53,11 @@ export default function Add({categories}) {
                             </svg>
                             Admin Home
                         </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="/admin/category">
+                        <Link href="/admin/category">
+                        <a >
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                  className="w-4 h-4 mr-2 stroke-current">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
@@ -61,6 +65,7 @@ export default function Add({categories}) {
                             </svg>
                             Category
                         </a>
+                        </Link>
                     </li>
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
