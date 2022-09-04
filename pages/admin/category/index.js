@@ -24,6 +24,7 @@ export default function Index({categories}) {
        <br/>
         <div className="flex items-end">
             <Link href="/" className="btn btn-primary btn-sm mb-2 "><b>+</b> &nbsp; Add</Link>
+
         </div>
         <hr/>
        <br/>
