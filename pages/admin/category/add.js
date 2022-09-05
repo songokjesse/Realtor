@@ -1,9 +1,10 @@
 import Layout from "../../../components/layout";
 import Link from "next/link";
-import {router} from "next/client";
+import {useRouter} from "next/router";
 
 
 export default function Add() {
+    const router = useRouter();
     const handleSubmit = async (event) => {
 
         // Stop the form from submitting and refreshing the page.
