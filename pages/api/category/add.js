@@ -19,11 +19,25 @@ export default  async function handler(req, res) {
 
     // Found the name.
     // Sends a HTTP success code
-    const result = await prisma.category.create({
-        data: {
-            name: name,
-        },
-    });
 
-    res.status(200).json({ data: `${result} ` })
+    try {
+        const result = await prisma.category.create({
+            data: {
+                name: name,
+            },
+        });
+        res.status(200).json(result);
+    } catch (err) {
+        console.log(err);
+        res.status(403).json({ err: "Error occured while adding a new category." });
+    }
+    //
+    //
+    // const result = await prisma.category.create({
+    //     data: {
+    //         name: name,
+    //     },
+    // });
+    //
+    // res.status(200).json({ data: `${result} ` })
 }

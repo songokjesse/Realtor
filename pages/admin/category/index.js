@@ -69,7 +69,7 @@ export default function Index({categories}) {
             </thead>
             <tbody>
             {categories.map(category => (
-                <tr key={category.id} className='hover'>
+                <tr key={category.id}  className='hover'>
                     <td>{category.name}</td>
                     <td className='flex items-end'>
                         <button className='btn btn-sm btn-primary'>Show</button> &nbsp;

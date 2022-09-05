@@ -1,5 +1,6 @@
 import Layout from "../../../components/layout";
 import Link from "next/link";
+import {router} from "next/client";
 
 
 export default function Add() {
@@ -37,7 +38,9 @@ export default function Add() {
         // Get the response data from server as JSON.
         // If server returns the name submitted, that means the form works.
         const result = await response.json()
-        alert(`Category ${result.data} Added`)
+        console.log(result)
+        // alert(`Category ${result    .name} Added`)
+        await router.push('/admin/category')
     }
     return <>
         <form onSubmit={handleSubmit}>
