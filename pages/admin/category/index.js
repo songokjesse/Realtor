@@ -3,7 +3,7 @@ import Layout from "../../../components/layout";
 import { PrismaClient } from '@prisma/client'
 import Link from "next/link";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const prisma = new PrismaClient()
     const categories = await prisma.category.findMany({
         select: {
@@ -69,7 +69,7 @@ export default function Index({categories}) {
             </thead>
             <tbody>
             {categories.map(category => (
-                <tr key={category.id}  className='hover'>
+                <tr key={category.id} className='hover'>
                     <td>{category.name}</td>
                     <td className='flex items-end'>
                         <button className='btn btn-sm btn-primary'>Show</button> &nbsp;

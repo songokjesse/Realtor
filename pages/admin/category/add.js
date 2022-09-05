@@ -1,8 +1,10 @@
 import Layout from "../../../components/layout";
 import Link from "next/link";
+import {useRouter} from "next/router";
 
 
 export default function Add() {
+    const router = useRouter();
     const handleSubmit = async (event) => {
 
         // Stop the form from submitting and refreshing the page.
@@ -38,7 +40,13 @@ export default function Add() {
         // If server returns the name submitted, that means the form works.
         const result = await response.json()
         console.log(result)
-        alert(`Category ${result.name} Added`)
+        if (result.name){
+            alert(`Category ${result.name} Added`)
+        }
+        if (result.err){
+            alert(result.err)
+        }
+        await router.push('/admin/category')
     }
     return <>
         <form onSubmit={handleSubmit}>
